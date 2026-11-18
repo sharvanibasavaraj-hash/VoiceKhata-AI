@@ -4,3 +4,4 @@ pipecat-ai[websocket]==1.16.0
 pipecat-gnani==0.6.0
 gunicorn
 uvicorn
+python-multipart
