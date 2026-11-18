@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceKhata | Smart Digital Ledger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">₹</div>
+            <div><h1>VoiceKhata</h1><p>Smart Digital Ledger</p></div>
+        </div>
+        <div class="status"><span class="status-dot"></span><span id="connectionStatus">Connecting...</span></div>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR DIGITAL SHOP ASSISTANT</p>
+                <h2>Manage your shop with your voice.</h2>
+                <p class="subtitle">Record customer udhaar, track payments and check who owes what simply by speaking.</p>
+            </div>
+            <div class="welcome-icon">🎙️</div>
+        </section>
+
+        <section class="summary-grid">
+            <div class="summary-card balance-card"><p>Total Outstanding</p><h2 id="balance">₹0.00</h2><span>Customer credit minus payments</span></div>
+            <div class="summary-card"><p>Total Udhaar</p><h2 id="totalSales">₹0.00</h2><span>Credit recorded</span></div>
+            <div class="summary-card"><p>Payments Received</p><h2 id="totalPurchases">₹0.00</h2><span>Customer payments</span></div>
+        </section>
+
+        <section class="main-grid">
+            <div class="panel voice-panel">
+                <div class="panel-heading"><div><p class="eyebrow">VOICE ASSISTANT</p><h3>Talk to VoiceKhata</h3></div><span class="mic-label">LIVE VOICE</span></div>
+                <label for="language">Choose your language</label>
+                <select id="language">
+                    <option value="en-IN">English</option>
+                    <option value="kn-IN">Kannada</option>
+                    <option value="hi-IN">Hindi</option>
+                    <option value="ta-IN">Tamil</option>
+                    <option value="te-IN">Telugu</option>
+                    <option value="ml-IN">Malayalam</option>
+                    <option value="mr-IN">Marathi</option>
+                    <option value="gu-IN">Gujarati</option>
+                    <option value="bn-IN">Bengali</option>
+                    <option value="pa-IN">Punjabi</option>
+                </select>
+                <div class="microphone-area">
+                    <button id="recordButton" class="mic-button" type="button" aria-label="Start speaking"><span>🎙️</span></button>
+                    <p id="recordStatus">Tap the microphone to speak</p>
+                    <p class="mic-hint">Speak naturally. I'll handle the rest.</p>
+                </div>
+                <div class="recording-actions"><button id="stopButton" class="secondary-button" disabled>Stop Recording</button></div>
+                <div class="transcript-box"><p class="box-label">WHAT YOU SAID</p><p id="transcript">Your voice transcript will appear here.</p></div>
+                <div class="response-box"><p class="box-label">VOICEKHATA RESPONSE</p><p id="assistantResponse">Your assistant's response will appear here.</p></div>
+            </div>
+
+            <div class="panel command-panel">
+                <div class="panel-heading"><div><p class="eyebrow">QUICK ENTRY</p><h3>Type a transaction</h3></div><span class="entry-icon">✍️</span></div>
+                <p class="form-description">You can also enter a transaction manually.</p>
+                <form id="commandForm">
+                    <label for="commandInput">Transaction or question</label>
+                    <textarea id="commandInput" rows="4" placeholder="Example: Ramesh ka 340 udhaar" required></textarea>
+                    <button type="submit" class="primary-button" id="submitButton">Submit Entry</button>
+                </form>
+                <div class="example-box"><p class="box-label">TRY SAYING</p><ul>
+                    <li>"Ramesh ka 340 udhaar"</li>
+                    <li>"Ramesh ne 200 diya"</li>
+                    <li>"Aaj kitna udhaar gaya?"</li>
+                    <li>"Ramesh ka total kitna hai?"</li>
+                    <li>"Nahi, 430"</li>
+                </ul></div>
+            </div>
+        </section>
+
+        <section class="panel history-panel">
+            <div class="panel-heading"><div><p class="eyebrow">SHOP RECORDS</p><h3>Recent Ledger Entries</h3></div><button id="refreshButton" class="refresh-button">↻ Refresh</button></div>
+            <div class="table-wrapper"><table><thead><tr><th>Customer / Transaction</th><th>Type</th><th>Amount</th><th>Date</th></tr></thead>
+                <tbody id="transactionList"><tr><td colspan="4" class="empty-state">No transactions recorded yet.</td></tr></tbody>
+            </table></div>
+        </section>
+        <div id="notification" class="notification" role="status"></div>
+    </main>
+    <footer><p>VoiceKhata © 2026 · Your shop, your voice, your records.</p></footer>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
