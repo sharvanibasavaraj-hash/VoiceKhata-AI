@@ -2,8 +2,8 @@ import { PipecatClient } from "https://esm.sh/@pipecat-ai/client-js@1.16.0";
 import { WebSocketTransport } from "https://esm.sh/@pipecat-ai/websocket-transport@1.8.1";
 
 const API_BASE = "";
-const AGENT_WS_URL = "ws://localhost:7860/ws-client";
 
+const AGENT_WS_URL = "wss://voicekhata-agent1.onrender.com/ws-client";
 const recordButton = document.getElementById("recordButton");
 const stopButton = document.getElementById("stopButton");
 const recordStatus = document.getElementById("recordStatus");
